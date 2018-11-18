@@ -67,7 +67,10 @@ def get_attractions_for_traveler(traveler):
   traveler_name = traveler[0]
   interests_string += traveler_name + ", we think you'll like these places around " + traveler_destination + ": "
   for traveler_attraction in traveler_attractions:
-    interests_string += traveler_attraction + ", "
+    if len(traveler_attractions) > 1:
+      interests_string += traveler_attraction + ", "
+    else:
+      interests_string += traveler_attraction + "."
   return interests_string
 
 smills_france = get_attractions_for_traveler(["Dereck Smill", "Paris, France", ["monument"]])
